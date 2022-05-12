@@ -11,7 +11,7 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image
 
-main_dir_t1 = 'app/content'
+main_dir_t1 = '/content/'
 #ae = load_model('app/model_author_ae.h5')
 # loading
 with open('tokenizer.pickle', 'rb') as handle:
