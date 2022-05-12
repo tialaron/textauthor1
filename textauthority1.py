@@ -12,7 +12,7 @@ import numpy as np
 from PIL import Image
 
 main_dir_t1 = 'app/content'
-ae = load_model('app/model_author_ae.h5')
+#ae = load_model('app/model_author_ae.h5')
 # loading
 with open('app/tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
