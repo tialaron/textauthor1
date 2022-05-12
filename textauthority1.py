@@ -17,7 +17,7 @@ main_dir_t1 = 'content/'
 with open('tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
 
-image_path = 'app/realtrack1.jpg'
+image_path = 'realtrack1.jpg'
 #main_dir_t2 = '/content/class2/'
 
 print(os.listdir(main_dir_t1))
