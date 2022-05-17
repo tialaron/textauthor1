@@ -1,3 +1,4 @@
+import allfunctions1
 from sklearn.metrics import accuracy_score, roc_auc_score, homogeneity_score, mean_squared_error  # импортируем метрики, вторая считается более сбалансированной если есть дисбаланс классов
 from sklearn.manifold import TSNE   # для визуализации многомерных данных
 from sklearn.cluster import KMeans, SpectralClustering # Импортируем библиотеку KMeans для кластеризации
@@ -11,77 +12,71 @@ from tensorflow.keras.models import load_model
 import numpy as np
 from PIL import Image
 
-main_dir_t1 = 'content/'
-#ae = load_model('app/model_author_ae.h5')
+className = ["О. Генри", "Стругацкие", "Булгаков", "Клиффорд_Саймак", "Макс Фрай", "Брэдберри"] # Объявляем интересующие нас классы
+main_dir_t1 = 'H:\Pythonprojects\\textauthor1\\venv\content'
+model01 = load_model('H:\Pythonprojects\\textauthor1\\venv\model_author_all.h5')
 # loading
-with open('tokenizer.pickle', 'rb') as handle:
+with open('H:\Pythonprojects\\textauthor1\\venv\\tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
 
-image_path = 'realtrack1.jpg'
+image_path = 'H:\Pythonprojects\\textauthor1\\venv\\realtrack1.jpg'
 #main_dir_t2 = '/content/class2/'
 
-print(os.listdir(main_dir_t1))
+newTest = []
+for i in range(len(className)): #Проходим по каждому классу
+    newTest.append(allfunctions1.readText('H:\Pythonprojects\\textauthor1\\venv\(Айзек_Азимов) Тестовая Я робот.txt'))
 
+xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
+step = 100 #Шаг разбиения исходного текста на обучающие векторы
+testWordIndexes1 = tokenizer2.texts_to_sequences(newTest)  # Проверочные тесты в индексы
+wordIndexes = testWordIndexes1
+
+xTest6Classes01 = []               #Здесь будет список из всех классов, каждый размером "кол-во окон в тексте * 20000
+xTest6Classes = []                 #Здесь будет список массивов, каждый размером "кол-во окон в тексте * длину окна"(6 по 420*1000)
+for wI in wordIndexes:                       #Для каждого тестового текста из последовательности индексов
+    sample = (allfunctions1.getSetFromIndexes(wI, xLen, step))  # Тестовая выборка размером "кол-во окон*длину окна"(например, 420*1000)
+    xTest6Classes.append(sample)  # Добавляем в список
+    xTest6Classes01.append(tokenizer2.sequences_to_matrix(sample))  # Трансформируется в Bag of Words в виде "кол-во окон в тексте * 20000"
+xTest6Classes01 = np.array(xTest6Classes01)                     #И добавляется к нашему списку,
+xTest6Classes = np.array(xTest6Classes)                     #И добавляется к нашему списку,
+
+xTest = xTest6Classes01
+
+totalSumRec = 0 # Сумма всех правильных ответов
+# Проходим по всем классам. А их у нас 6
+nClasses = 6
+for i in range(nClasses):
+    # Получаем результаты распознавания класса по блокам слов длины xLen
+    currPred = model01.predict(xTest[i])
+    # Определяем номер распознанного класса для каждохо блока слов длины xLen
+    currOut = np.argmax(currPred, axis=1)
+
+    evVal = []
+    for j in range(nClasses):
+        evVal.append(len(currOut[currOut == j]) / len(xTest[i]))
+
+    totalSumRec += len(currOut[currOut == i])
+    recognizedClass = np.argmax(evVal)  # Определяем, какой класс в итоге за какой был распознан
+
+    # Выводим результаты распознавания по текущему классу
+    # isRecognized = "Это НЕПРАВИЛЬНЫЙ ответ!"
+    # if (recognizedClass == i):
+    #  isRecognized = "Это ПРАВИЛЬНЫЙ ответ!"
+    str1 = 'Класс: ' + className[i] + " " * (11 - len(className[i])) + str(
+        int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
+    # print(str1, " " * (55-len(str1)), isRecognized, sep='')
+    print(str1, " " * (55 - len(str1)))
+
+# Выводим средний процент распознавания по всем классам вместе
+print()
+sumCount = 0
+for i in range(nClasses):
+    sumCount += len(xTest[i])
+print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
 #testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
-st.header("Распознавание авторства текста")
 with st.expander("Вот так выглядит процесс создания нейронной сети"):
     st.write("В процессе создания проводится сбор базы данных из текстов. Подготовка данных заключается только в распределении"
              "текстов одного автора по файлам")
     st.image(image_path)
-# формируем текстовые выборки
-#NewTexts = []
-#text_classes = []
-#file_names = []
-#for filename in os.listdir(main_dir_t1):
-#    file_path = main_dir_t1 + filename
-#    NewTexts.append(readText(file_path)) #добавляем в обучающую выборку
-#    text_classes.append(0)
-#    file_names.append(filename)
-#for filename in os.listdir(main_dir_t2):
-#    file_path = main_dir_t2 + filename
-#    NewTexts.append(readText(file_path)) #добавляем в обучающую выборку
-#    text_classes.append(1)
-#    file_names.append(filename)
 
-# Преобразовываем текст в последовательность индексов согласно частотному словарю
-#valWordIndexes = tokenizer.texts_to_sequences(NewTexts) # Обучающие тесты в индексы
-
-#auth_val_words = {}
-#for i in range(2): # Проходим по всем классам
-#    print(file_names[i], " "*(10-len(file_names[i])), len(valWordIndexes[i]), "слов")
-#    auth_val_words[file_names[i]] = len(valWordIndexes[i])
-
-#min_val_len = np.min(np.array(list(auth_val_words.values())))
-#print("наименьшая длина выборки текстов:", min_val_len)
-
-#балансируем выборку, укорачивая наборы слов по каждому классу:
-#print("проводим балансировку:")
-#for i in range(2): # Проходим по всем классам
-#    valWordIndexes[i] = valWordIndexes[i][:min_val_len]
-#    print(file_names[i], " "*(10-len(file_names[i])), len(valWordIndexes[i]), "слов")
-
-#Задаём базовые параметры
-xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
-step = 100 #Шаг разбиения исходного текста на обучающие векторы
-
-#xVal, yVal = createSetsMultiClasses(valWordIndexes, xLen, step) #извлекаем обучающую выборку
-#xVal01 = tokenizer.sequences_to_matrix(xVal.tolist()) #Подаем xVal в виде списка, чтобы метод успешно сработал
-# загрузить с диска удачную модель
-#ae = load_model('H:\Pythonprojects\\textauthor1\\venv\model_author_ae.h5')
-
-#z_train = enc.predict(xTrain01) #X
-#z_train.shape, z_train.std()
-
-#xVal0 = xVal01[yVal_num==0]
-#xVal1 = xVal01[yVal_num==1]
-
-#out_Val0 = ae.predict(xVal0) #X
-#out_Val1 = ae.predict(xVal1) #X
-
-
-#tres = 0.00066
-#if mse_val > tres:
-#    print('Авторы текстов разные.')
-#else:
-#    print('У текстов один автор.')
