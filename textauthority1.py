@@ -14,12 +14,12 @@ from PIL import Image
 
 className = ["О. Генри", "Стругацкие", "Булгаков", "Клиффорд_Саймак", "Макс Фрай", "Брэдберри"] # Объявляем интересующие нас классы
 main_dir_t1 = 'H:\Pythonprojects\\textauthor1\\venv\content'
-model01 = load_model('app/model_author_all.h5')
+model01 = load_model('model_author_all.h5')
 # loading
 with open('app/tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
 
-image_path = 'app/realtrack1.jpg'
+image_path = 'realtrack1.jpg'
 #main_dir_t2 = '/content/class2/'
 
 newTest = []
