@@ -16,7 +16,7 @@ className = ["О. Генри", "Стругацкие", "Булгаков", "Кл
 main_dir_t1 = 'H:\Pythonprojects\\textauthor1\\venv\content'
 model01 = load_model('model_author_all.h5')
 # loading
-with open('app/tokenizer.pickle', 'rb') as handle:
+with open('tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
 
 image_path = 'realtrack1.jpg'
