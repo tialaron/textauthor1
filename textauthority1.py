@@ -102,7 +102,7 @@ st.write(writers1)
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
-    newTest.append(allfunctions1.readText('/app/textauthor1/test/(Айзек_Азимов) Тестовая Я робот.txt'))
+    newTest.append(allfunctions1.readText('/app/textauthor1/test/'+ writers1[1]))
 
 xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
 step = 100 #Шаг разбиения исходного текста на обучающие векторы
