@@ -109,6 +109,8 @@ st.write(type(test_path1))
 st.write(type(test_path2))
 st.write(len(test_path1))
 st.write(len(test_path2))
+if test_path1 == test_path2 :
+    st.write('равно')
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
