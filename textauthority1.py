@@ -14,7 +14,7 @@ from PIL import Image
 
 className = ["О. Генри", "Стругацкие", "Булгаков", "Клиффорд_Саймак", "Макс Фрай", "Брэдберри"] # Объявляем интересующие нас классы
 nClasses = len(className)
-main_dir_t1 = 'H:\Pythonprojects\\textauthor1\\venv\content'
+
 model01 = load_model('model_author_all.h5')
 # loading
 with open('tokenizer.pickle', 'rb') as handle:
@@ -54,6 +54,8 @@ for i in range(nClasses):
 print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
 #testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
+st.header('Определение авторства текста')
+st.write('Данный ресурс позволяет продемонстрировать работу нейронной сети по определению авторства текста')
 with st.expander("Вот так выглядит процесс создания нейронной сети"):
     st.write("В процессе создания проводится сбор базы данных из текстов. Подготовка данных заключается только в распределении"
              "текстов одного автора по файлам")
