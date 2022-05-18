@@ -105,7 +105,7 @@ test_path2 = '/app/textauthor1/test/'+ writers1[4]
 
 st.write(test_path1)
 st.write(test_path2)
-print(test_path1 == test_path2)
+st.write(test_path1 == test_path2)
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
