@@ -44,6 +44,20 @@ xTest = xTest6Classes01
 
 totalSumRec = 0 # Сумма всех правильных ответов
 # Проходим по всем классам. А их у нас 6
+
+# Выводим средний процент распознавания по всем классам вместе
+print()
+sumCount = 0
+for i in range(nClasses):
+    sumCount += len(xTest[i])
+print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
+#testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
+
+with st.expander("Вот так выглядит процесс создания нейронной сети"):
+    st.write("В процессе создания проводится сбор базы данных из текстов. Подготовка данных заключается только в распределении"
+             "текстов одного автора по файлам")
+    st.image(image_path)
+
 nClasses = 6
 for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
@@ -66,17 +80,4 @@ for i in range(nClasses):
         int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
     st.write(str1, " " * (55 - len(str1)))
-
-# Выводим средний процент распознавания по всем классам вместе
-print()
-sumCount = 0
-for i in range(nClasses):
-    sumCount += len(xTest[i])
-print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
-#testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
-
-with st.expander("Вот так выглядит процесс создания нейронной сети"):
-    st.write("В процессе создания проводится сбор базы данных из текстов. Подготовка данных заключается только в распределении"
-             "текстов одного автора по файлам")
-    st.image(image_path)
 
