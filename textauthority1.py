@@ -101,8 +101,11 @@ st.write(writers1)
 st.text(writers1[4])
 
 test_path1 = '/app/textauthor1/test/'+'(Рэй Брэдберри) Тестовая_8 вместе.txt'
-#test_path1 = '/app/textauthor1/test/'+ writers1[4]
+test_path2 = '/app/textauthor1/test/'+ writers1[4]
+
 st.write(test_path1)
+st.write(test_path2)
+
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
     newTest.append(allfunctions1.readText(test_path1))
