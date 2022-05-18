@@ -28,6 +28,8 @@ image_path5 = 'authorsfiles4.jpg'
 image_path7 = 'authorsfiles7.jpg'
 image_path8 = 'authorsfiles8.jpg'
 image_path9 = 'authorsfiles9.jpg'
+image_path10 = 'authorsfiles10.jpg'
+image_path11 = 'authorsfiles11.jpg'
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
@@ -91,7 +93,18 @@ with st.expander("Подготовленные данные подаются в 
     with col2:
         st.write("На выход подаются категории в виде векторов [0,1,0,0,0,0]") 
         st.image(image_path8)
+ 
+with st.expander("Проводится обучение и регулировка параметров нейронной сети (тип слоев, количество слоев и нейронов и др.)."):
+    col3,col4 = st.columns(2)
+    with col3:
+        st.write("В итоге подбирается архитектура сети.")
+        st.image(image_path10)
+    with col4:
+        st.write("Данная архитектура обеспечивает приемлемую точность классификации текста.") 
+        st.image(image_path11)    
 
+with st.expander("А теперь давайте выберем любой текст"):
+        
 for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
     currPred = model01.predict(xTest[i])
