@@ -52,8 +52,8 @@ totalSumRec = 0 # Сумма всех правильных ответов
 sumCount = 0
 for i in range(nClasses):
     sumCount += len(xTest[i])
-print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
-testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
+    st.write("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
+#testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
 st.header('Определение авторства текста')
 st.write('Данный ресурс позволяет продемонстрировать работу нейронной сети по определению авторства текста')
