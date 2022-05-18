@@ -98,7 +98,7 @@ with st.expander("А теперь давайте выберем любой те�
 
 writers1 = os.listdir(test_path)
 st.write(writers1)
-
+st.write(writers1[1])
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
