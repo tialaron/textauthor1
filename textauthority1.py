@@ -25,6 +25,7 @@ image_path2 = 'authorsfiles1.jpg'
 image_path3 = 'authorsfiles2.jpg'
 image_path4 = 'authorsfiles3.jpg'
 image_path5 = 'authorsfiles4.jpg'
+image_path6 = 'authorsfiles7.jpg'
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
@@ -74,6 +75,10 @@ with st.expander("Как проводится обработка данных"):
     st.write("Далее каждый текст преобразовывается в набор чисел согласно этому словарю.")
     st.image(image_path5)
 
+with st.expander("Метод Bag-of-Words"):
+    st.write("В данном примере для подачи данных в нейроную сеть использовался так называемый метод 'Bag-of-Words' (сокращенно BOW)."
+             "Он позволяет преобразовать длинный список индексов слов в матрицу.")
+    st.image(image_path7)
     
 
 for i in range(nClasses):
