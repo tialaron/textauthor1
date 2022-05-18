@@ -22,7 +22,7 @@ with open('tokenizer.pickle', 'rb') as handle:
 
 image_path = 'realtrack1.jpg'
 image_path2 = 'authorsfiles1.jpg'
-image_path3 = 'authorsfiles2.jpg'
+#image_path3 = 'authorsfiles2.jpg'
 #main_dir_t2 = '/content/class2/'
 
 newTest = []
@@ -63,8 +63,8 @@ with st.expander("Вот так выглядит процесс создания
 with st.expander("Как создавалась база данных для обучения"):
     st.write("По каждому писателю собирается набор TXT файлов (обязательно сохранить в кодировке UTF-8).")
     st.image(image_path2)
-    st.write("Внутри файла обычный текст")
-    st.image(image_path3)
+    #st.write("Внутри файла обычный текст")
+    #st.image(image_path3)
 
 
     
