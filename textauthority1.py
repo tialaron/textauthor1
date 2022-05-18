@@ -114,7 +114,7 @@ if test_path1 == test_path2 :
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
-    newTest.append(allfunctions1.readText(test_path1))
+    newTest.append(allfunctions1.readText(test_path2))
 
 xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
 step = 100 #Шаг разбиения исходного текста на обучающие векторы
