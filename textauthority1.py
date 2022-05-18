@@ -85,12 +85,12 @@ for i in range(nClasses):
     # isRecognized = "Это НЕПРАВИЛЬНЫЙ ответ!"
     # if (recognizedClass == i):
     #  isRecognized = "Это ПРАВИЛЬНЫЙ ответ!"
-    str1 = 'Класс: ' + className[i] + " " * (11 - len(className[i])) + str(
-        int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
+    str1 = 'Данный текст похож на произведения : ' + className[i] + " на " * (11 - len(className[i])) + str(
+        int(100 * evVal[i])) + "%" 
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
     st.write(str1, " " * (55 - len(str1)))
 
 sumCount = 0
 for i in range(nClasses):
     sumCount += len(xTest[i])
-st.write("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
+st.write("Средний процент повторимости текста ", int(100 * totalSumRec / sumCount), "%", sep='')
