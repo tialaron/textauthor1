@@ -21,6 +21,7 @@ with open('tokenizer.pickle', 'rb') as handle:
     tokenizer2 = pickle.load(handle)
 
 image_path = 'realtrack1.jpg'
+image_path2 = 'authorsfiles1.jpg'
 #main_dir_t2 = '/content/class2/'
 
 newTest = []
@@ -61,6 +62,10 @@ with st.expander("Вот так выглядит процесс создания
              "текстов одного автора по файлам")
     st.image(image_path)
 
+with st.expander("Как создавалась база данных для обучения"):
+    st.write("По каждому писателю собирается набор TXT файлов.")
+    st.image(image_path2)
+    
 
 for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
