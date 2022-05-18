@@ -79,7 +79,21 @@ with st.expander("Проводится обучение и регулировк�
         st.image(image_path11)    
 
 with st.expander("А теперь давайте выберем любой текст"):
-    st.write("Выберите текст.")
+    col5,col6,col7,col8,col9,col10,col11 = st.columns(7)
+    with col5:
+        st.write("Айзек Азимов.")
+    with col6:
+        st.write("О. Генри")
+    with col7:
+        st.write("Стругацкие")
+    with col8:
+        st.write("Булгаков")
+    with col9:
+        st.write("Клиффорд Саймак")
+    with col10:
+        st.write("Макс Фрай")
+    with col11:
+        st.write("Брэдберри")
      
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
