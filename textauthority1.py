@@ -26,6 +26,8 @@ image_path3 = 'authorsfiles2.jpg'
 image_path4 = 'authorsfiles3.jpg'
 image_path5 = 'authorsfiles4.jpg'
 image_path7 = 'authorsfiles7.jpg'
+image_path8 = 'authorsfiles8.jpg'
+image_path9 = 'authorsfiles9.jpg'
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
@@ -64,7 +66,7 @@ with st.expander("Вот так выглядит процесс создания
 
 with st.expander("Как создавалась база данных для обучения"):
     st.write("По каждому писателю собирается набор TXT файлов (обязательно сохранить в кодировке UTF-8)."
-             "Разбиваются на обучающую и тестовую выборку.")
+             "Разбиваются на обучающую и тестовую выборки.")
     st.image(image_path2)
     st.write("Внутри файла обычный текст")
     st.image(image_path3)
@@ -79,7 +81,15 @@ with st.expander("Метод Bag-of-Words"):
     st.write("В данном примере для подачи данных в нейроную сеть использовался так называемый метод 'Bag-of-Words' (сокращенно BOW)."
              "Он позволяет преобразовать длинный список индексов слов в матрицу.")
     st.image(image_path7)
-    
+
+with st.expander("Подготовленные данные подаются в нейронную сеть"):
+    col1,col2 = st.columns(2)
+    with col1:
+        st.write("На вход подается матрица текстов.")
+        st.image(image_path9)
+    with col2:
+        st.write("На выход подаются категории в виде векторов [0,1,0,0,0,0]") 
+        st.image(image_path8)
 
 for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
