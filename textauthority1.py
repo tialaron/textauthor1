@@ -101,27 +101,20 @@ one_of_writers = st.radio("Какого автора хотите провери
 
 if one_of_writers == 'Айзек Азимов':
     st.write('Вы выбрали Азимова.')
-    test_path1 = '/app/textauthor1/test/'+'(Айзек_Азимов) Тестовая_2 вместе.txt'
+    test_path1 = test_path+'(Айзек_Азимов) Тестовая_2 вместе.txt'
 elif one_of_writers == 'О.Генри':
     st.write("Вы выбрали О.Генри.")
-    test_path1 = '/app/textauthor1/test/'+'(О. Генри) Тестовая_20 вместе.txt'
+    test_path1 = test_path+'(О. Генри) Тестовая_20 вместе.txt'
 elif one_of_writers == 'Стругацкие':
     st.write("Вы выбрали Стругацких.")
-    test_path1 = '/app/textauthor1/test/'+'(Стругацкие) Тестовая_2 вместе.txt'
+    test_path1 = test_path+'(Стругацкие) Тестовая_2 вместе.txt'
 elif one_of_writers == 'Булгаков':
     st.write("Вы выбрали Булгакова.")
-    test_path1 = '/app/textauthor1/test/'+'(Булгаков) Тестовая_2 вместе.txt'
+    test_path1 = test_path+'(Булгаков) Тестовая_2 вместе.txt'
 elif one_of_writers == 'Клиффорд Саймак':
     st.write("Вы выбрали Клиффорда Саймака.")
-    test_path1 = '/app/textauthor1/test/'+'(Клиффорд_Саймак) Тестовая_2 вместе.txt'
-        
-writers1 = os.listdir(test_path)
-st.write(writers1)
-st.text(writers1[4])
-
-test_path1 = '/app/textauthor1/test/'+'(Айзек_Азимов) Тестовая_2 вместе.txt'
-#test_path2 = '/app/textauthor1/test/'+ writers1[4]
-
+    test_path1 = test_path+'(Клиффорд_Саймак) Тестовая_2 вместе.txt'
+     
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
     newTest.append(allfunctions1.readText(test_path1))
