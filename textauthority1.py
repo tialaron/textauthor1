@@ -14,6 +14,7 @@ from PIL import Image
 
 className = ["О. Генри", "Стругацкие", "Булгаков", "Клиффорд_Саймак", "Макс Фрай", "Брэдберри"] # Объявляем интересующие нас классы
 nClasses = len(className)
+test_path = '/app/textauthor1/test/'
 
 model01 = load_model('model_author_all.h5')
 # loading
@@ -94,7 +95,11 @@ with st.expander("А теперь давайте выберем любой те�
         st.write("Макс Фрай")
     with col11:
         st.write("Брэдберри")
-     
+
+writers1 = os.listdir(test_path)
+st.write(writers1)
+
+
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
     newTest.append(allfunctions1.readText('/app/textauthor1/test/(Айзек_Азимов) Тестовая Я робот.txt'))
