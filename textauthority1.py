@@ -84,7 +84,7 @@ one_of_writers = st.radio("Какого автора хотите провери
 
 if one_of_writers == 'Айзек Азимов':
     st.write('Вы выбрали Азимова.')
-    test_path1 = test_path11 + '(Айзек_Азимов) Тестовая Я робот.txt'
+    test_path1 = test_path11 + '(Айзек_Азимов) Тестовая_2 вместе.txt'
 elif one_of_writers == 'О.Генри':
     st.write("Вы выбрали О.Генри.")
     test_path1 = test_path11 + '(О. Генри) Тестовая_20 вместе.txt'
