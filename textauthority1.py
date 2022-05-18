@@ -24,7 +24,7 @@ image_path = 'realtrack1.jpg'
 
 newTest = []
 for i in range(len(className)): #Проходим по каждому классу
-    newTest.append(allfunctions1.readText('H:\Pythonprojects\\textauthor1\\venv\(Айзек_Азимов) Тестовая Я робот.txt'))
+    newTest.append(allfunctions1.readText('app/test/(Айзек_Азимов) Тестовая Я робот.txt'))
 
 xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
 step = 100 #Шаг разбиения исходного текста на обучающие векторы
