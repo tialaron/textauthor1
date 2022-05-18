@@ -25,7 +25,7 @@ image_path2 = 'authorsfiles1.jpg'
 #main_dir_t2 = '/content/class2/'
 
 newTest = []
-for i in range(len(className)): #Проходим по каждому классу
+for i in range(nClasses): #Проходим по каждому классу
     newTest.append(allfunctions1.readText('/app/textauthor1/test/(Айзек_Азимов) Тестовая Я робот.txt'))
 
 xLen = 1000 #Длина отрезка текста, по которой анализируем, в словах
