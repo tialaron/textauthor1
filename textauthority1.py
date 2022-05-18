@@ -13,6 +13,7 @@ import numpy as np
 from PIL import Image
 
 className = ["О. Генри", "Стругацкие", "Булгаков", "Клиффорд_Саймак", "Макс Фрай", "Брэдберри"] # Объявляем интересующие нас классы
+nClasses = len(className)
 main_dir_t1 = 'H:\Pythonprojects\\textauthor1\\venv\content'
 model01 = load_model('model_author_all.h5')
 # loading
@@ -58,7 +59,7 @@ with st.expander("Вот так выглядит процесс создания
              "текстов одного автора по файлам")
     st.image(image_path)
 
-nClasses = 6
+
 for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
     currPred = model01.predict(xTest[i])
