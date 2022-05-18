@@ -111,6 +111,9 @@ elif one_of_writers == 'Стругацкие':
 elif one_of_writers == 'Булгаков':
     st.write("Вы выбрали Булгакова.")
     test_path1 = '/app/textauthor1/test/'+'(Булгаков) Тестовая_2 вместе.txt'
+elif one_of_writers == 'Клиффорд Саймак':
+    st.write("Вы выбрали Клиффорда Саймака.")
+    test_path1 = '/app/textauthor1/test/'+'(Клиффорд_Саймак) Тестовая_2 вместе.txt'
         
 writers1 = os.listdir(test_path)
 st.write(writers1)
