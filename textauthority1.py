@@ -49,11 +49,11 @@ totalSumRec = 0 # Сумма всех правильных ответов
 
 # Выводим средний процент распознавания по всем классам вместе
 
-#sumCount = 0
-#for i in range(nClasses):
-#    sumCount += len(xTest[i])
-#print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
-#testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
+sumCount = 0
+for i in range(nClasses):
+    sumCount += len(xTest[i])
+print("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
+testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
 st.header('Определение авторства текста')
 st.write('Данный ресурс позволяет продемонстрировать работу нейронной сети по определению авторства текста')
@@ -65,28 +65,28 @@ with st.expander("Как создавалась база данных для о�
     st.write("По каждому писателю собирается набор TXT файлов.")
     st.image(image_path2)
 
-with st.expander(""):
+
     
 
-#for i in range(nClasses):
+for i in range(nClasses):
     # Получаем результаты распознавания класса по блокам слов длины xLen
-#    currPred = model01.predict(xTest[i])
+    currPred = model01.predict(xTest[i])
     # Определяем номер распознанного класса для каждохо блока слов длины xLen
-#    currOut = np.argmax(currPred, axis=1)
+    currOut = np.argmax(currPred, axis=1)
 
-#    evVal = []
-#    for j in range(nClasses):
-#        evVal.append(len(currOut[currOut == j]) / len(xTest[i]))
+    evVal = []
+    for j in range(nClasses):
+        evVal.append(len(currOut[currOut == j]) / len(xTest[i]))
 
-#    totalSumRec += len(currOut[currOut == i])
-#    recognizedClass = np.argmax(evVal)  # Определяем, какой класс в итоге за какой был распознан
+    totalSumRec += len(currOut[currOut == i])
+    recognizedClass = np.argmax(evVal)  # Определяем, какой класс в итоге за какой был распознан
 
     # Выводим результаты распознавания по текущему классу
     # isRecognized = "Это НЕПРАВИЛЬНЫЙ ответ!"
     # if (recognizedClass == i):
     #  isRecognized = "Это ПРАВИЛЬНЫЙ ответ!"
-#    str1 = 'Класс: ' + className[i] + " " * (11 - len(className[i])) + str(
-#        int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
+    str1 = 'Класс: ' + className[i] + " " * (11 - len(className[i])) + str(
+        int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
-#    st.write(str1, " " * (55 - len(str1)))
+    st.write(str1, " " * (55 - len(str1)))
 
