@@ -25,7 +25,7 @@ image_path2 = 'authorsfiles1.jpg'
 image_path3 = 'authorsfiles2.jpg'
 image_path4 = 'authorsfiles3.jpg'
 image_path5 = 'authorsfiles4.jpg'
-image_path6 = 'authorsfiles7.jpg'
+image_path7 = 'authorsfiles7.jpg'
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
