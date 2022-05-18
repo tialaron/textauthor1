@@ -65,7 +65,7 @@ for i in range(nClasses):
     str1 = 'Класс: ' + className[i] + " " * (11 - len(className[i])) + str(
         int(100 * evVal[i])) + "% сеть отнесла к классу " + className[recognizedClass]
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
-    print(str1, " " * (55 - len(str1)))
+    st.write(str1, " " * (55 - len(str1)))
 
 # Выводим средний процент распознавания по всем классам вместе
 print()
