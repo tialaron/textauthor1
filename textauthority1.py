@@ -23,6 +23,7 @@ with open('tokenizer.pickle', 'rb') as handle:
 image_path = 'realtrack1.jpg'
 image_path2 = 'authorsfiles1.jpg'
 image_path3 = 'authorsfiles2.jpg'
+image_path4 = 'authorsfiles3.jpg'
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
@@ -60,11 +61,15 @@ with st.expander("Вот так выглядит процесс создания
     st.image(image_path)
 
 with st.expander("Как создавалась база данных для обучения"):
-    st.write("По каждому писателю собирается набор TXT файлов (обязательно сохранить в кодировке UTF-8).")
+    st.write("По каждому писателю собирается набор TXT файлов (обязательно сохранить в кодировке UTF-8)."
+             "Разбиваются на обучающую и тестовую выборку.")
     st.image(image_path2)
     st.write("Внутри файла обычный текст")
     st.image(image_path3)
 
+with st.expander("Как проводится обработка данных"):
+    st.write("Создается так называемый 'словарь частотности' из текстов авторов. В нем указывается как часто и какое слово встречается в тексте.")
+    st.image(image_path4)
 
     
 
