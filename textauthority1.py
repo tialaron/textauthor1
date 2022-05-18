@@ -57,6 +57,7 @@ totalSumRec = 0 # Сумма всех правильных ответов
 
 #testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
+st.set_page_config(layout="wide")
 st.header('Определение авторства текста')
 st.write('Данный ресурс позволяет продемонстрировать работу нейронной сети по определению авторства текста')
 with st.expander("Вот так выглядит процесс создания нейронной сети"):
