@@ -85,8 +85,8 @@ for i in range(nClasses):
     # isRecognized = "Это НЕПРАВИЛЬНЫЙ ответ!"
     # if (recognizedClass == i):
     #  isRecognized = "Это ПРАВИЛЬНЫЙ ответ!"
-    str1 = 'Данный текст похож на произведения : ' + className[i] + " на " * (11 - len(className[i])) + str(
-        int(100 * evVal[i])) + "%" 
+    str1 = 'Данный текст похож на произведения : ' + className[i] + " " * (11 - len(className[i])) + ' на ' + str(
+        int(100 * evVal[i])) + " %" 
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
     st.write(str1, " " * (55 - len(str1)))
 
