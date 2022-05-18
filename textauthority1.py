@@ -107,6 +107,8 @@ st.write(test_path1)
 st.write(test_path2)
 st.write(type(test_path1))
 st.write(type(test_path2))
+st.write(len(test_path1))
+st.write(len(test_path2))
 
 newTest = []
 for i in range(nClasses): #Проходим по каждому классу
