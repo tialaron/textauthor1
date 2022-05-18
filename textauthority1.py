@@ -49,10 +49,7 @@ totalSumRec = 0 # Сумма всех правильных ответов
 
 # Выводим средний процент распознавания по всем классам вместе
 
-sumCount = 0
-for i in range(nClasses):
-    sumCount += len(xTest[i])
-    st.write("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
+
 #testWordIndexes = tokenizer2.texts_to_sequences(testText)  # Проверочные тесты в индексы
 
 st.header('Определение авторства текста')
@@ -90,3 +87,7 @@ for i in range(nClasses):
     # print(str1, " " * (55-len(str1)), isRecognized, sep='')
     st.write(str1, " " * (55 - len(str1)))
 
+sumCount = 0
+for i in range(nClasses):
+    sumCount += len(xTest[i])
+st.write("Средний процент распознавания ", int(100 * totalSumRec / sumCount), "%", sep='')
