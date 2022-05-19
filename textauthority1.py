@@ -106,7 +106,7 @@ with col5:
         test_path1 = test_path11 + '(Рэй Брэдберри) Тестовая_8 вместе.txt'
     elif one_of_writers == 'Ерофеев':
         st.write("Вы выбрали Ерофеева.")
-        test_path1 = test_path11 + 'Erofeev_V._Moskva_Petushki.txt'
+        test_path1 = test_path11 + 'Erofeev_V_Moskva_Petushki.txt'
 with col6:
     newTest = []
     for i in range(nClasses): #Проходим по каждому классу
